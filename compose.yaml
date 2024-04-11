@@ -12,6 +12,10 @@ services:
         condition: service_healthy
     secrets:
       - db-password
+    develop:
+      watch:
+        - action: rebuild
+          path: .
   db:
     image: postgres
     restart: always
