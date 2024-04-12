@@ -1,9 +1,10 @@
 # Use an official R runtime as a parent image
-FROM rocker/shiny:latest
+# The 4.1.2 version is choosen for compatibility with libpq-dev library
+FROM r-base:4.1.2 
 
 # Install required libraries
-RUN sudo apt update
-RUN sudo apt install libpq-dev -y
+RUN apt update
+RUN apt install libpq-dev -y
 
 # Install R packages
 RUN R -e "install.packages(c('shiny','RPostgres','shinyalert'))"
