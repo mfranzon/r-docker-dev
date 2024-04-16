@@ -9,7 +9,7 @@ RUN apt install libpq-dev -y
 # Install R packages, if you want to install also
 # the dependencies for Postgres install also
 # RPostgres
-RUN R -e "install.packages(c('shiny', shinyalert'))" 
+RUN R -e "install.packages(c('shiny', 'shinyalert'))" 
 
 # Set new workdir
 WORKDIR /home/app
