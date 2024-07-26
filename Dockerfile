@@ -1,10 +1,12 @@
 # Use an official R runtime as a parent image
-# The 4.1.2 version is choosen for compatibility with libpq-dev library
-FROM r-base:4.1.2 
+# The 4.4.0 version is choosen for compatibility with libpq-dev library
+FROM r-base:4.4.0 
 
 # Install required libraries
-RUN apt update
-RUN apt install libpq-dev -y
+RUN apt-get update && \
+    apt-get install -y base-files libpq-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install R packages, if you want to install also
 # the dependencies for Postgres install also
